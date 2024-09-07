@@ -2,7 +2,7 @@ package org.mego.entity.api.request;
 
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
-import org.mego.impl.APIRequestData;
+import org.mego.tunnel.APIRequestData;
 
 @Getter
 public abstract class APIRequest {

@@ -1,4 +1,4 @@
-package org.mego.impl;
+package org.mego.tunnel;
 
 import org.mego.utils.JsonUtil;
 

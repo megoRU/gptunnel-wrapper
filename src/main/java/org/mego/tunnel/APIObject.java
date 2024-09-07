@@ -1,4 +1,4 @@
-package org.mego.impl;
+package org.mego.tunnel;
 
 public interface APIObject {
 

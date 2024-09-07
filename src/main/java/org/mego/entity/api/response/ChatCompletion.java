@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.mego.impl.APIObject;
+import org.mego.tunnel.APIObject;
 
 @Getter
 @Setter

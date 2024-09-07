@@ -3,7 +3,7 @@ package org.mego.entity.api;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.mego.impl.APIRequestData;
+import org.mego.tunnel.APIRequestData;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.mego.impl.APIRequestData;
+import org.mego.tunnel.APIRequestData;
 
 import java.util.List;
 
