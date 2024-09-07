@@ -1,4 +1,4 @@
-package org.mego.tunnel;
+package org.gpttunnel.tunnel;
 
 public interface APIObject {
 

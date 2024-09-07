@@ -1,6 +1,6 @@
-package org.mego.entity.api.request;
+package org.gpttunnel.entity.api.request;
 
-import org.mego.entity.api.ChatRequest;
+import org.gpttunnel.entity.api.ChatRequest;
 
 public class ChatCompletionRequest extends APIRequest {
 

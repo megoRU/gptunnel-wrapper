@@ -1,12 +1,12 @@
-package org.mego.tunnel;
+package org.gpttunnel.tunnel;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
-import org.mego.entity.api.ChatRequest;
-import org.mego.entity.api.AssistantRequest;
-import org.mego.entity.api.response.ChatAssistant;
-import org.mego.entity.api.response.ChatCompletion;
-import org.mego.entity.exceptions.UnsuccessfulHttpException;
+import org.gpttunnel.entity.api.ChatRequest;
+import org.gpttunnel.entity.api.AssistantRequest;
+import org.gpttunnel.entity.api.response.ChatAssistant;
+import org.gpttunnel.entity.api.response.ChatCompletion;
+import org.gpttunnel.entity.exceptions.UnsuccessfulHttpException;
 
 import java.io.IOException;
 import java.util.Objects;

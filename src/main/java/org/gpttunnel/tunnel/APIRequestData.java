@@ -1,6 +1,6 @@
-package org.mego.tunnel;
+package org.gpttunnel.tunnel;
 
-import org.mego.utils.JsonUtil;
+import org.gpttunnel.utils.JsonUtil;
 
 public interface APIRequestData {
 

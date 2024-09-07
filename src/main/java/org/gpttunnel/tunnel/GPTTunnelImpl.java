@@ -1,18 +1,18 @@
-package org.mego.tunnel;
+package org.gpttunnel.tunnel;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
-import org.mego.entity.api.ChatRequest;
-import org.mego.entity.api.AssistantRequest;
-import org.mego.entity.api.request.APIRequest;
-import org.mego.entity.api.request.ChatAssistantRequest;
-import org.mego.entity.api.request.ChatCompletionRequest;
-import org.mego.entity.api.response.ChatAssistant;
-import org.mego.entity.api.response.ChatCompletion;
-import org.mego.entity.exceptions.UnsuccessfulHttpException;
-import org.mego.utils.JsonUtil;
+import org.gpttunnel.entity.api.ChatRequest;
+import org.gpttunnel.entity.api.AssistantRequest;
+import org.gpttunnel.entity.api.request.APIRequest;
+import org.gpttunnel.entity.api.request.ChatAssistantRequest;
+import org.gpttunnel.entity.api.request.ChatCompletionRequest;
+import org.gpttunnel.entity.api.response.ChatAssistant;
+import org.gpttunnel.entity.api.response.ChatCompletion;
+import org.gpttunnel.entity.exceptions.UnsuccessfulHttpException;
+import org.gpttunnel.utils.JsonUtil;
 
 import java.io.IOException;
 import java.util.Objects;

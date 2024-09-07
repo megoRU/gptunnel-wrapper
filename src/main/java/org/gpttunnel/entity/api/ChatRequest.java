@@ -1,4 +1,4 @@
-package org.mego.entity.api;
+package org.gpttunnel.entity.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.mego.tunnel.APIRequestData;
+import org.gpttunnel.tunnel.APIRequestData;
 
 import java.util.List;
 

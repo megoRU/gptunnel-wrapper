@@ -1,6 +1,6 @@
-package org.mego.entity.api.request;
+package org.gpttunnel.entity.api.request;
 
-import org.mego.entity.api.AssistantRequest;
+import org.gpttunnel.entity.api.AssistantRequest;
 
 public class ChatAssistantRequest extends APIRequest {
 

@@ -1,4 +1,4 @@
-package org.mego.entity.exceptions;
+package org.gpttunnel.entity.exceptions;
 
 import lombok.Getter;
 

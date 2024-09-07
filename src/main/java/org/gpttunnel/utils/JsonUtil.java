@@ -1,4 +1,4 @@
-package org.mego.utils;
+package org.gpttunnel.utils;
 
 import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;

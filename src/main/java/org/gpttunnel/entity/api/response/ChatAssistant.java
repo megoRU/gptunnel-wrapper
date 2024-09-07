@@ -1,4 +1,4 @@
-package org.mego.entity.api.response;
+package org.gpttunnel.entity.api.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.mego.tunnel.APIObject;
+import org.gpttunnel.tunnel.APIObject;
 
 @Getter
 @Setter
