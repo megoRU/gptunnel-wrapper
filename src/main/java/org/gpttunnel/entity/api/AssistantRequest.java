@@ -24,6 +24,9 @@ public class AssistantRequest implements APIRequestData {
     @JsonProperty("assistantCode")
     private String assistantCode;
 
+    @JsonProperty("maxContext")
+    private int maxContext = 8;
+
     @JsonProperty("message")
     private String message;
 
