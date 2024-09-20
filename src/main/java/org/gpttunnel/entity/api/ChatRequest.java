@@ -1,7 +1,6 @@
 package org.gpttunnel.entity.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,34 +27,34 @@ public class ChatRequest implements APIRequestData {
     public static class Message {
 
         private String role;
-        private List<Content> content;
+        private String content;
 
-        public Message(Role role, List<Content> content) {
+        public Message(Role role, String content) {
             this.role = role.getRole();
             this.content = content;
         }
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    public static class Content {
-
-        private String type;
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        private String text;
-        @SerializedName("image_url")
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        private ImageURL imageURL;
-    }
-
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    public static class ImageURL {
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        private String url;
-    }
+//    @Getter
+//    @Setter
+//    @AllArgsConstructor
+//    public static class Content {
+//
+//        private String type;
+//        @JsonInclude(JsonInclude.Include.NON_NULL)
+//        private String text;
+//        @SerializedName("image_url")
+//        @JsonInclude(JsonInclude.Include.NON_NULL)
+//        private ImageURL imageURL;
+//    }
+//
+//    @Getter
+//    @Setter
+//    @AllArgsConstructor
+//    public static class ImageURL {
+//        @JsonInclude(JsonInclude.Include.NON_NULL)
+//        private String url;
+//    }
 
     @Getter
     public enum Role {
