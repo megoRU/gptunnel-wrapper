@@ -29,6 +29,7 @@ public interface GPTTunnelAPI {
 
         // Required
         private String token;
+        private boolean isDevMode = false;
 
         /**
          * Password
@@ -40,6 +41,11 @@ public interface GPTTunnelAPI {
             return this;
         }
 
+        public Builder setDevMode() {
+            this.isDevMode = true;
+            return this;
+        }
+
         /**
          * @throws IllegalArgumentException if some fields null
          */
@@ -47,7 +53,7 @@ public interface GPTTunnelAPI {
             if (token == null)
                 throw new IllegalArgumentException("token cannot be null!");
             else
-                return new GPTTunnelImpl(token);
+                return new GPTTunnelImpl(token, isDevMode);
         }
     }
 }

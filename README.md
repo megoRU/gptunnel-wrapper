@@ -16,7 +16,7 @@ https://jitpack.io/#megoRU/gptunnel-wrapper
 <dependency>
     <groupId>com.github.megoRU</groupId>
     <artifactId>gptunnel-wrapper</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
@@ -27,25 +27,19 @@ https://jitpack.io/#megoRU/gptunnel-wrapper
 ```java
 public class Main {
     public static void main(String[] args) {
-        GPTTunnelAPI GPTTunnelAPI = new GPTTunnelAPI.Builder()
+        GPTTunnelAPI gptTunnelAPI = new GPTTunnelAPI.Builder()
                 .setToken("token")
+                .setDevMode()
                 .build();
 
         ChatRequest gptRequest = new ChatRequest();
-//        gptRequest.setModel("gpt-4o");
-//        gptRequest.setMaxTokens(1000);
+        gptRequest.setModel("gpt-4o");
+        gptRequest.setMaxTokens(1000);
 
-        List<ChatRequest.Content> content = new ArrayList<>();
+        ChatRequest.Message message = new ChatRequest.Message(ChatRequest.Role.USER.getRole(), "Hello");
+        gptRequest.setMessages(List.of(message));
 
-        ChatRequest.Content gptContent = new ChatRequest.Content("text", "text", null);
-        content.add(gptContent);
-
-        ChatRequest.Message userMessage = new ChatRequest.Message(ChatRequest.Role.USER, content);
-        userMessage.setContent(content);
-
-        gptRequest.setMessages(List.of(userMessage));
-
-        ChatCompletion chatCompletion = GPTTunnelAPI.chatCompletion(gptRequest);
+        ChatCompletion chatCompletion = gptTunnelAPI.chatCompletion(gptRequest);
 
         String text = chatCompletion.getChoices()[0].getMessage().getContent();
         System.out.println(text);
@@ -58,15 +52,17 @@ public class Main {
 ```java
 public class Main {
     public static void main(String[] args) throws Exception {
-      GPTTunnelAPI GPTTunnelAPI = new GPTTunnelAPI.Builder()
+        GPTTunnelAPI GPTTunnelAPI = new GPTTunnelAPI.Builder()
                 .setToken("token")
+                .setDevMode()
                 .build();
 
-       AssistantRequest assistantRequest = AssistantRequest.builder()
+        AssistantRequest assistantRequest = AssistantRequest.builder()
                 .chatId(UUID.randomUUID().toString())
-                .assistantCode("ai302312312")
+                .assistantCode("ai302...")
                 .useWalletBalance(true)
-                .message("Привет")
+                .maxContext(16)
+                .message("hello")
                 .build();
 
         ChatAssistant chatAssistant = GPTTunnelAPI.chatAssistant(assistantRequest);

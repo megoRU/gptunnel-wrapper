@@ -2,10 +2,11 @@ package org.gpttunnel.tunnel;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
-import org.gpttunnel.entity.api.ChatRequest;
 import org.gpttunnel.entity.api.AssistantRequest;
+import org.gpttunnel.entity.api.ChatRequest;
 import org.gpttunnel.entity.api.request.APIRequest;
 import org.gpttunnel.entity.api.request.ChatAssistantRequest;
 import org.gpttunnel.entity.api.request.ChatCompletionRequest;
@@ -13,6 +14,7 @@ import org.gpttunnel.entity.api.response.ChatAssistant;
 import org.gpttunnel.entity.api.response.ChatCompletion;
 import org.gpttunnel.entity.exceptions.UnsuccessfulHttpException;
 import org.gpttunnel.utils.JsonUtil;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -25,11 +27,12 @@ public class GPTTunnelImpl implements GPTTunnelAPI {
     private static final OkHttpClient CLIENT = new OkHttpClient();
     private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
     private final String token;
+    private final boolean isDevMode;
 
-    protected GPTTunnelImpl(String token) {
+    protected GPTTunnelImpl(@NotNull String token, boolean isDevMode) {
         this.token = token;
+        this.isDevMode = isDevMode;
     }
-
 
     @Override
     public ChatAssistant chatAssistant(@NotNull AssistantRequest assistantRequest) throws UnsuccessfulHttpException, IOException {
@@ -58,9 +61,7 @@ public class GPTTunnelImpl implements GPTTunnelAPI {
             }
         }
 
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String json = ow.writeValueAsString(apiRequest.getData().toJson());
-        System.out.println(json);
+        if (isDevMode) LOGGER.info(apiRequest.getData().toJson());
 
         Request request = requestBuilder.build();
 
