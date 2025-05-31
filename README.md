@@ -1,11 +1,14 @@
-## gptunnel-wrapper
+# gptunnel-wrapper
 
-### Maven
+Java wrapper for interacting with GPT services via GPTunnel.
 
-https://jitpack.io/#megoRU/gptunnel-wrapper
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Maven
+
+Add via [JitPack](https://jitpack.io/#megoRU/gptunnel-wrapper):
 
 ```xml
-
 <repositories>
     <repository>
         <id>jitpack.io</id>
@@ -22,38 +25,36 @@ https://jitpack.io/#megoRU/gptunnel-wrapper
 
 ## Examples
 
-### ChatRequest
+### Chat Request
 
 ```java
 public class Main {
     public static void main(String[] args) {
         GPTTunnelAPI gptTunnelAPI = new GPTTunnelAPI.Builder()
-                .setToken("token")
+                .setToken("your-token")
                 .setDevMode()
                 .build();
 
         ChatRequest gptRequest = new ChatRequest();
         gptRequest.setModel("gpt-4o");
         gptRequest.setMaxTokens(1000);
-
-        ChatRequest.Message message = new ChatRequest.Message(ChatRequest.Role.USER.getRole(), "Hello");
-        gptRequest.setMessages(List.of(message));
+        gptRequest.setMessages(List.of(
+            new ChatRequest.Message(ChatRequest.Role.USER.getRole(), "Hello")
+        ));
 
         ChatCompletion chatCompletion = gptTunnelAPI.chatCompletion(gptRequest);
-
-        String text = chatCompletion.getChoices()[0].getMessage().getContent();
-        System.out.println(text);
+        System.out.println(chatCompletion.getChoices()[0].getMessage().getContent());
     }
 }
 ```
 
-### AssistantRequest
+### Assistant Request
 
 ```java
 public class Main {
-    public static void main(String[] args) throws Exception {
-        GPTTunnelAPI GPTTunnelAPI = new GPTTunnelAPI.Builder()
-                .setToken("token")
+    public static void main(String[] args) {
+        GPTTunnelAPI gptTunnelAPI = new GPTTunnelAPI.Builder()
+                .setToken("your-token")
                 .setDevMode()
                 .build();
 
@@ -65,7 +66,7 @@ public class Main {
                 .message("hello")
                 .build();
 
-        ChatAssistant chatAssistant = GPTTunnelAPI.chatAssistant(assistantRequest);
+        ChatAssistant chatAssistant = gptTunnelAPI.chatAssistant(assistantRequest);
         System.out.println(chatAssistant.getMessage());
     }
 }
@@ -73,11 +74,15 @@ public class Main {
 
 ## Dependencies
 
-1. [Gson](https://github.com/google/gson)
-2. [Apache HttpClient](https://github.com/apache/httpcomponents-client)
-3. [JSON-java](https://github.com/stleary/JSON-java)
-4. [okhttp](https://github.com/square/okhttp)
+* [Gson](https://github.com/google/gson)
+* [Apache HttpClient](https://github.com/apache/httpcomponents-client)
+* [JSON-java](https://github.com/stleary/JSON-java)
+* [OkHttp](https://github.com/square/okhttp)
 
 ## Links
 
 * [Contact me](https://megoru.ru)
+
+## License
+
+Licensed under the [MIT License](https://opensource.org/licenses/MIT).
