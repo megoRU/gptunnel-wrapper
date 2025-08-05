@@ -1,9 +1,5 @@
 package org.gpttunnel.tunnel;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import okhttp3.*;
 import org.gpttunnel.entity.api.AssistantRequest;
 import org.gpttunnel.entity.api.ChatRequest;
@@ -18,13 +14,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public class GPTTunnelImpl implements GPTTunnelAPI {
 
+    private static final OkHttpClient CLIENT = new OkHttpClient.Builder()
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(60, TimeUnit.SECONDS)
+            .retryOnConnectionFailure(true)
+            .build();
 
     private static final Logger LOGGER = Logger.getLogger(GPTTunnelImpl.class.getName());
-    private static final OkHttpClient CLIENT = new OkHttpClient();
     private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
     private final String token;
     private final boolean isDevMode;
@@ -68,8 +70,6 @@ public class GPTTunnelImpl implements GPTTunnelAPI {
         try (Response response = CLIENT.newCall(request).execute()) {
             if (response.isSuccessful()) {
                 String responseBody = Objects.requireNonNull(response.body()).string();
-                if (!response.isSuccessful())
-                    throw new UnsuccessfulHttpException(response.code(), response.body().string());
                 return JsonUtil.fromJson(responseBody, tClass);
             } else {
                 String string = response.body().string();
