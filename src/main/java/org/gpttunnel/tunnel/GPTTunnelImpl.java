@@ -46,7 +46,6 @@ public class GPTTunnelImpl implements GPTTunnelAPI {
         return parseResponse(ChatCompletion.class, new ChatCompletionRequest(chatRequest));
     }
 
-
     private <T extends APIObject> T parseResponse(Class<T> tClass, @NotNull APIRequest apiRequest) throws IOException, UnsuccessfulHttpException {
         Request.Builder requestBuilder = new Request.Builder()
                 .url(apiRequest.getUrl())

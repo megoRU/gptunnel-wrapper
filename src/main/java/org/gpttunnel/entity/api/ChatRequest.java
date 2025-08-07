@@ -1,6 +1,7 @@
 package org.gpttunnel.entity.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,11 +16,25 @@ import java.util.List;
 public class ChatRequest implements APIRequestData {
 
     private String model = "gpt-4o-mini"; //gpt-3.5-turbo | gpt-4o-mini | gpt-4o
+
     private boolean useWalletBalance = true;
+
     @SerializedName("max_tokens")
-    private int maxTokens = 250;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer maxTokens = 250;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<Message> messages;
-    private int temperature = 1;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Object functions;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer temperature = 1;
+
+    @SerializedName("max_completion_tokens")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer maxCompletionTokens;
 
     @AllArgsConstructor
     @Getter
