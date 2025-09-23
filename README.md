@@ -19,7 +19,7 @@ Add via [JitPack](https://jitpack.io/#megoRU/gptunnel-wrapper):
 <dependency>
     <groupId>com.github.megoRU</groupId>
     <artifactId>gptunnel-wrapper</artifactId>
-    <version>1.0.5</version>
+    <version>1.1.1</version>
 </dependency>
 ```
 
