@@ -25,6 +25,7 @@ public class AssistantRequest implements APIRequestData {
     @JsonProperty("assistantCode")
     private String assistantCode;
 
+    @Builder.Default
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("maxContext")
     private int maxContext = 8;
